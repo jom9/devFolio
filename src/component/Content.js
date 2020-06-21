@@ -2,6 +2,8 @@ import React from 'react';
 import '../index.css';
 import axios from 'axios';
 import Projects from './Projects.js'
+import { BrowserRouter as Router } from 'react-router-dom';
+
 class Content extends React.Component{
   constructor(props){
     super(props);
@@ -9,20 +11,13 @@ class Content extends React.Component{
       content:""
     };
     this.getAboutMe = this.getAboutMe.bind(this);
-    this.setExample = this.setExample.bind(this);
+    this.setAboutMe = this.setAboutMe.bind(this);
   }
-  setExample(prevProps){
-    if(this.props.val!=prevProps.val &&this.props.val=="projects"){
-      axios.get('/examples/cppchess.html')
-  .then((response) => {
-    console.log(response.data);
-    this.setState({content:response.data})
-  });
-    }
-  }
+
+
   setAboutMe(prevProps){
     if(this.props.val!=prevProps.val &&this.props.val=="home"){
-      axios.get('/aboutme.html')
+      axios.get('./aboutme.html')
   .then((response) => {
     console.log(response.data);
     this.setState({content:response.data})
@@ -33,26 +28,33 @@ class Content extends React.Component{
     return {__html:this.state.content};
   }
   componentDidMount(){
-    axios.get('/aboutme.html').then((response) => {console.log(response.data);
+    axios.get('./aboutme.html').then((response) => {console.log(response.data);
       this.setState({content:response.data})
     });
   }
   componentDidUpdate(prevProps){
     this.setAboutMe(prevProps);
-    this.setExample(prevProps);
+
   }
   render(){
+    console.log(process.env.PUBLIC_URL);
       if(this.props.val=='home'){
       return(
+
           <div className="site-content">
             <div className="primary">
               <div dangerouslySetInnerHTML={this.getAboutMe()}/>
             </div>
           </div>
+
         );
       }
       else if(this.props.val=='projects'){
-        return(<Projects/>);
+        return(<Router basename={process.env.PUBLIC_URL}>
+          <Projects/>
+          </Router>
+
+        );
       }
       else{
         return(
