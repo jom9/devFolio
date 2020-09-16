@@ -11,13 +11,13 @@ class App extends React.Component{
     this.changePage = this.changePage.bind(this);
   }
   changePage(val){
-    if(val=="home" && this.state.page!="home"){
+    if(val==="home" && this.state.page!=="home"){
       this.setState({page:"home"});
     }
-    else if (val=="projects" && this.state.page!="projects") {
+    else if (val==="projects" && this.state.page!=="projects") {
         this.setState({page:"projects"});
     }
-    else if (val == "cv"&& this.state.page!="cv") {
+    else if (val === "cv"&& this.state.page!=="cv") {
         this.setState({page:"cv"});
     }
 

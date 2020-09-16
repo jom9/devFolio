@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My personal portfolio",
   "main": "index.js",
-  "homepage":"http://jom9.github.io/devFolio",
+  "homepage":".",
   "scripts": {
     "test": "react-scripts start",
     "start": "react-scripts start",
