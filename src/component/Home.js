@@ -1,7 +1,7 @@
 import React from 'react';
 import '../index.css';
 import axios from 'axios';
-import Projects from './Projects.js'
+
 import AboutMe from './AboutMe'
 class Home extends React.Component{
   constructor(props){
@@ -12,7 +12,7 @@ class Home extends React.Component{
   }
 
   componentDidMount(){
-    axios.get('./aboutme.html').then((response) => {console.log(response.data);
+    axios.get('./aboutme.html').then((response) => {
       this.setState({content:response.data})
     });
   }
@@ -22,9 +22,9 @@ class Home extends React.Component{
       <div>
 
       <div className="site-content">
-        <div className="primary">
+
           <AboutMe/>
-        </div>
+
       </div>
       </div>
 

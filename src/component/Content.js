@@ -1,16 +1,11 @@
 import React from 'react';
 import '../index.css';
-import axios from 'axios';
 import Projects from './Projects.js';
 import Home from './Home.js';
-import AboutMe from './AboutMe.js';
 import CV from './CV.js'
 import { BrowserRouter as Router } from 'react-router-dom';
 
 class Content extends React.Component{
-  constructor(props){
-    super(props);
-  }
 
   render(){
     if(this.props.val==='home'){

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import '../index.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+
 function createMarkup(element) {
   return { __html: element };
 }

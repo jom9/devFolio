@@ -11,7 +11,7 @@ class CV extends React.Component{
     this.getCV = this.getCV.bind(this);
   }
   componentDidMount(){
-    axios.get('./cv.html').then((response) => {console.log(response.data);
+    axios.get('./resume.pdf').then((response) => {console.log(response.data);
       this.setState({content:response.data})
     });
   }
